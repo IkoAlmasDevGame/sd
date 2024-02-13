@@ -58,7 +58,7 @@
                         </h5>
                     </div>
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="act-signin.php" method="post">
                             <div class="d-grid justify-content-center align-content-center m-5 p-5">
                                 <div class="shadow-lg">
                                     <div class="input-group">
