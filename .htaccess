@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+AddHandler application/x-httpd-ea-php80 .php .php8
+RewriteEngine On
+Options -Indexes
+</IfModule>
