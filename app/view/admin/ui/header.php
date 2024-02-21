@@ -9,7 +9,7 @@
     <?php 
         session_start();
         require_once("../../../database/koneksi.php");
-        require_once("../config/auth.php");
+        require_once("../../../config/auth.php");
         
         $table = "s_sistem";
         $sql = "SELECT * FROM $table WHERE flags='1'";
