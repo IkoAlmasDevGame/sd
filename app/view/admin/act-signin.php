@@ -7,12 +7,6 @@ if(isset($_POST["submit"])){
     password_verify($password, PASSWORD_DEFAULT);
 
     if($userEmail == "" || $password == ""){
-        echo "<script lang='javascript'>
-        window.setTimout(() => {
-            alert('Maaf username / email atau password anda belum terisi ...'), 
-            window.location.href='index.php'
-        }, 1000);
-        </script>";
         header("location:index.php");
         exit(0);
     }
@@ -21,7 +15,7 @@ if(isset($_POST["submit"])){
     $row = $conn->query($sql);
     $cek = mysqli_num_rows($row);
 
-    if($cek > 1){
+    if($cek > 0){
         $respondTable["s_pengguna"] = array($userEmail, $password);
         if($db = $row->fetch_assoc()){
             if($db["user_level"] == "admin"){
@@ -30,23 +24,22 @@ if(isset($_POST["submit"])){
                 $_SESSION["nama_pengguna"] = $db["nama"];
                 $_SESSION["username"] = $db["username"];
                 $_SESSION["user_level"] = "admin";
-                header("location:dashboard/index.php", true, 200) or http_response_code(200);
-                exit(0);                
+                header("location:dashboard/index.php");
             }else if($db["user_level"] == "guru"){
                 $_SESSION["id_pengguna"] = $db["id"];
                 $_SESSION["email_pengguna"] = $db["email"];
                 $_SESSION["nama_pengguna"] = $db["nama"];
                 $_SESSION["username"] = $db["username"];
                 $_SESSION["user_level"] = "guru";
-                header("location:dashboard/index.php", true, 200) or http_response_code(200);
-                exit(0);
+                header("location:dashboard/index.php");
             }
             $_SESSION["status"] = true;
             array_push($respondTable["s_pengguna"],$db);
+            exit(0);
         }
     }else{
         $_SESSION["status"] = false;
-        header("location:index.php", true, 404) or http_response_code(404);
+        header("location:index.php");
         exit(0);
     }
 }

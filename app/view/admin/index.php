@@ -3,8 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
     <meta content='text/html; charset=iso-8859-1' http-equiv='Content-type' />
     <meta content='width=330, height=400, initial-scale=1' name='viewport' />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
