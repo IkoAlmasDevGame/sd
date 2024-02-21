@@ -21,7 +21,7 @@ if(isset($_POST["submit"])){
     $row = $conn->query($sql);
     $cek = mysqli_num_rows($row);
 
-    if($cek > 1){
+    if($cek > 0){
         $respondTable["s_pengguna"] = array($userEmail, $password);
         if($db = $row->fetch_assoc()){
             if($db["user_level"] == "admin"){
